@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize file -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- icons file -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- main css file -->
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Css Editor</title>
+  </head>
+  <body>
+    <!-- ----------------------------------------- -->
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">Css Editor</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Editor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Some Styles</a>
+            </li>
+          </ul>
+
+          <button class="dropdown btn rounded-0">
+            <span
+              class="dropdown-toggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Theme Color
+            </span>
+            <ul class="dropdown-menu theme-colors rounded-0">
+              <li
+                class="dropdown-item d-flex justify-content-between"
+                data-value="--blue"
+              >
+                <span>Blue</span>
+                <span style="background-color: var(--blue)" class="px-3"></span>
+              </li>
+              <li
+                class="dropdown-item d-flex justify-content-between"
+                data-value="--red"
+              >
+                <span>Red</span>
+                <span style="background-color: var(--red)" class="px-3"></span>
+              </li>
+              <li
+                class="dropdown-item d-flex justify-content-between"
+                data-value="--green"
+              >
+                <span>Green</span>
+                <span style="background-color: var(--green)" class="px-3"></span>
+              </li>
+              <li
+                class="dropdown-item d-flex justify-content-between"
+                data-value="--orange"
+              >
+                <span>Orange</span>
+                <span style="background-color: var(--orange)" class="px-3"></span>
+              </li>
+              <li
+                class="dropdown-item d-flex justify-content-between"
+                data-value="--purple"
+              >
+                <span>Purple</span>
+                <span style="background-color: var(--purple)" class="px-3"></span>
+              </li>
+            </ul>
+          </button>
+
+          <span class="fs-md" id="themeBtn" type="button" data-value="dark"
+            ><i class="fa-solid fa-moon mode-icon"></i>
+            <span class="ms-1" id="themeText"> dark</span></span
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- end navbar -->
+    <!-- edit section -->
+    <!-- header -->
+    <header
+      class="border-top border-bottom mb-3 position-sticky top-0 start-0 bg-inh z-1"
+    >
+      <div class="container d-flex align-items-center py-2">
+        <div>
+          <h4 id="current-item" class="main-color">No element chosen</h4>
+          <div id="pseudo-classes" class="d-flex w-50"></div>
+        </div>
+        <div class="ms-auto">
+          <button class="nav-item dropdown btn ms-auto rounded-0">
+            <span
+              class="nav-link dropdown-toggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Create
+            </span>
+            <ul class="dropdown-menu rounded-0">
+              <li class="dropdown-item text-decoration-line-through">Card</li>
+              <li class="dropdown-item item-created" data-value="Button">
+                Button
+              </li>
+              <li class="dropdown-item item-created" data-value="P">P</li>
+              <li class="dropdown-item item-created" data-value="Input">
+                Input
+              </li>
+              <li class="dropdown-item item-created" data-value="Div">
+                Div
+              </li>
+              <li class="dropdown-item item-created" data-value="Table">
+                Table
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li class="dropdown-item">more items...</li>
+            </ul>
+          </button>
+          <button
+            class="btn btn-outline d-lg-none ms-auto rounded-0"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasResponsive"
+            aria-controls="offcanvasResponsive"
+          >
+            Menu
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- edit -->
+
+    <div class="edit-content">
+      <div class="container">
+        <div class="row">
+          <div class="secondary-styles border border-bottom-0 p-2 d-flex">
+            <div class="m-2 position-relative">
+              <input
+                type="checkbox"
+                name=":hover"
+                id="hoverClass"
+                data-value="hover"
+                class="pseudo position-absolute top-50 start-50 translate-middle opacity-0 z-n1"
+              />
+              <label for="hoverClass" type="button" class="text-capitalize"
+                >hover</label
+              >
+            </div>
+            <div class="m-2 position-relative">
+              <input
+                type="checkbox"
+                name="::before"
+                id="beforeClass"
+                data-value="before"
+                class="pseudo position-absolute top-50 start-50 translate-middle opacity-0 z-n1"
+              />
+              <label for="beforeClass" type="button" class="text-capitalize"
+                >before</label
+              >
+            </div>
+          </div>
+          <div
+            class="offcanvas-lg offcanvas-end col-lg-4 border"
+            tabindex="-1"
+            id="offcanvasResponsive"
+            aria-labelledby="offcanvasResponsiveLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">
+                Styles Menu
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                data-bs-target="#offcanvasResponsive"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body d-flex flex-column accordion">
+              <!-- offcanvas-body -->
+              <div class="styles-section-one">
+                <!-- background-color -->
+                <div class="accordion-item border rounded-0 my-2 p-2">
+                  <button
+                    class="accordion-button "
+                    data-bs-toggle="collapse"
+                    data-bs-target="#background-style"
+                  >
+                    background
+                  </button>
+
+                  <div class="collapse" id="background-style">
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="backColor" type="button">color</label>
+                      <input
+                        type="color"
+                        name="backColor"
+                        data-style-type="background-color"
+                        class="inputs-style"
+                      />
+                    </div>
+                    <!-- default values -->
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="backColor-trans" type="button">inherit</label>
+                      <input
+                        type="radio"
+                        name="backColor"
+                        id="backColor-trans"
+                        value="inherit"
+                        data-style-type="background-color"
+                        class="inputs-style"
+                      />
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="backColor-trans" type="button">initial</label>
+                      <input
+                        type="radio"
+                        name="backColor"
+                        id="backColor-trans"
+                        value="initial"
+                        data-style-type="background-color"
+                        class="inputs-style"
+                      />
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="backColor-trans" type="button">unset</label>
+                      <input
+                        type="radio"
+                        name="backColor"
+                        id="backColor-trans"
+                        value="unset"
+                        data-style-type="background-color"
+                        class="inputs-style"
+                      />
+                    </div>
+                    <!-- end default values -->
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="backColor-trans" type="button"
+                        >transparent</label
+                      >
+                      <input
+                        type="radio"
+                        name="backColor"
+                        id="backColor-trans"
+                        value="transparent"
+                        data-style-type="background-color"
+                        class="inputs-style"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- end background-color -->
+                <!-- border -->
+                <div class="accordion-item border rounded-0 p-2 my-2">
+                  <button
+                    class="accordion-button "
+                    id="border"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#border-style"
+                  >
+                    border
+                  </button>
+
+                  <div id="border-style" class="accordion-collapse collapse">
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="borderColor" type="button">color</label>
+                      <input
+                        type="color"
+                        name="borderColor"
+                        data-style-type="border-color"
+                        class="inputs-style"
+                      />
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="border-solid" type="button">solid</label>
+                      <input
+                        type="radio"
+                        name="borderStyle"
+                        id="border-solid"
+                        data-style-type="border-style"
+                        class="inputs-style"
+                        value="solid"
+                      />
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="border-dashed" type="button">dashed</label>
+                      <input
+                        type="radio"
+                        name="borderStyle"
+                        id="border-dashed"
+                        data-style-type="border-style"
+                        class="inputs-style"
+                        value="dashed"
+                      />
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="border-dotted" type="button">dotted</label>
+                      <input
+                        type="radio"
+                        name="borderStyle"
+                        id="border-dotted"
+                        data-style-type="border-style"
+                        class="inputs-style"
+                        value="dotted"
+                      />
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="border-double" type="button">double</label>
+                      <input
+                        type="radio"
+                        name="borderStyle"
+                        id="border-double"
+                        data-style-type="border-style"
+                        class="inputs-style"
+                        value="double"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- end border -->
+                <!-- size -->
+                <div class="accordion-item border rounded-0 my-2 p-2">
+                  <button
+                    class="accordion-button "
+                    id="size"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#size-style"
+                  >
+                    size
+                  </button>
+
+                  <div class="collapse" id="size-style">
+                    <div class="row mb-2">
+                      <label for="width" type="button" class="col-12 mb-1"
+                        >width</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        name="width"
+                        data-style-type="width"
+                        class="inputs-style col-6 m-auto p-1"
+                        id="width"
+                      />
+                      <select
+                        class="form-select rounded-0 style-unit col-6 m-auto w-auto"
+                        aria-label="width"
+                        data-target-connect="width"
+                      >
+                        <option selected value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="cap">cap</option>
+                        <option value="ch">ch</option>
+                        <option value="cm">cm</option>
+                        <option value="cqb">cqb</option>
+                        <option value="cqh">cqh</option>
+                        <option value="cqi">cqi</option>
+                        <option value="cqmax">cqmax</option>
+                        <option value="cqmin">cqmin</option>
+                        <option value="cqw">cqw</option>
+                        <option value="dvb">dvb</option>
+                        <option value="dvh">dvh</option>
+                        <option value="dvi">dvi</option>
+                        <option value="dvw">dvw</option>
+                        <option value="em">em</option>
+                        <option value="ex">ex</option>
+                        <option value="fr">fr</option>
+                        <option value="ic">ic</option>
+                        <option value="in">in</option>
+                        <option value="lh">lh</option>
+                        <option value="lvb">lvb</option>
+                        <option value="lvh">lvh</option>
+                        <option value="lvi">lvi</option>
+                        <option value="lvw">lvw</option>
+                        <option value="mm">mm</option>
+                        <option value="pc">pc</option>
+                        <option value="pt">pt</option>
+                        <option value="px">px</option>
+                        <option value="q">q</option>
+                        <option value="rcap">rcap</option>
+                        <option value="rch">rch</option>
+                        <option value="rem">rem</option>
+                        <option value="rex">rex</option>
+                        <option value="ric">ric</option>
+                        <option value="rlh">rlh</option>
+                        <option value="svb">svb</option>
+                        <option value="svh">svh</option>
+                        <option value="svi">svi</option>
+                        <option value="svw">svw</option>
+                        <option value="vb">vb</option>
+                        <option value="vh">vh</option>
+                        <option value="vi">vi</option>
+                        <option value="vmax">vmax</option>
+                        <option value="vmin">vmin</option>
+                        <option value="vw">vw</option>
+                      </select>
+                    </div>
+                    <div class="row mb-2">
+                      <label for="height" type="button" class="col-12 mb-1"
+                        >height</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        name="height"
+                        data-style-type="height"
+                        class="inputs-style col-6 m-auto p-1"
+                        id="height"
+                      />
+                      <select
+                        class="form-select rounded-0 style-unit col-6 m-auto w-auto"
+                        aria-label="height"
+                        data-target-connect="height"
+                      >
+                        <option selected value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="cap">cap</option>
+                        <option value="ch">ch</option>
+                        <option value="cm">cm</option>
+                        <option value="cqb">cqb</option>
+                        <option value="cqh">cqh</option>
+                        <option value="cqi">cqi</option>
+                        <option value="cqmax">cqmax</option>
+                        <option value="cqmin">cqmin</option>
+                        <option value="cqw">cqw</option>
+                        <option value="dvb">dvb</option>
+                        <option value="dvh">dvh</option>
+                        <option value="dvi">dvi</option>
+                        <option value="dvw">dvw</option>
+                        <option value="em">em</option>
+                        <option value="ex">ex</option>
+                        <option value="fr">fr</option>
+                        <option value="ic">ic</option>
+                        <option value="in">in</option>
+                        <option value="lh">lh</option>
+                        <option value="lvb">lvb</option>
+                        <option value="lvh">lvh</option>
+                        <option value="lvi">lvi</option>
+                        <option value="lvw">lvw</option>
+                        <option value="mm">mm</option>
+                        <option value="pc">pc</option>
+                        <option value="pt">pt</option>
+                        <option value="px">px</option>
+                        <option value="q">q</option>
+                        <option value="rcap">rcap</option>
+                        <option value="rch">rch</option>
+                        <option value="rem">rem</option>
+                        <option value="rex">rex</option>
+                        <option value="ric">ric</option>
+                        <option value="rlh">rlh</option>
+                        <option value="svb">svb</option>
+                        <option value="svh">svh</option>
+                        <option value="svi">svi</option>
+                        <option value="svw">svw</option>
+                        <option value="vb">vb</option>
+                        <option value="vh">vh</option>
+                        <option value="vi">vi</option>
+                        <option value="vmax">vmax</option>
+                        <option value="vmin">vmin</option>
+                        <option value="vw">vw</option>
+                      </select>
+                    </div>
+                    <!-- padding -->
+                    <div class="row mb-2">
+                      <label for="padding" type="button" class="col-12 mb-1"
+                        >padding</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        name="padding"
+                        data-style-type="padding"
+                        class="inputs-style col-6 m-auto p-1"
+                        id="padding"
+                      />
+                      <select
+                        class="form-select rounded-0 style-unit col-6 m-auto w-auto"
+                        aria-label="padding"
+                        data-target-connect="padding"
+                      >
+                        <option selected value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="cap">cap</option>
+                        <option value="ch">ch</option>
+                        <option value="cm">cm</option>
+                        <option value="cqb">cqb</option>
+                        <option value="cqh">cqh</option>
+                        <option value="cqi">cqi</option>
+                        <option value="cqmax">cqmax</option>
+                        <option value="cqmin">cqmin</option>
+                        <option value="cqw">cqw</option>
+                        <option value="dvb">dvb</option>
+                        <option value="dvh">dvh</option>
+                        <option value="dvi">dvi</option>
+                        <option value="dvw">dvw</option>
+                        <option value="em">em</option>
+                        <option value="ex">ex</option>
+                        <option value="fr">fr</option>
+                        <option value="ic">ic</option>
+                        <option value="in">in</option>
+                        <option value="lh">lh</option>
+                        <option value="lvb">lvb</option>
+                        <option value="lvh">lvh</option>
+                        <option value="lvi">lvi</option>
+                        <option value="lvw">lvw</option>
+                        <option value="mm">mm</option>
+                        <option value="pc">pc</option>
+                        <option value="pt">pt</option>
+                        <option value="px">px</option>
+                        <option value="q">q</option>
+                        <option value="rcap">rcap</option>
+                        <option value="rch">rch</option>
+                        <option value="rem">rem</option>
+                        <option value="rex">rex</option>
+                        <option value="ric">ric</option>
+                        <option value="rlh">rlh</option>
+                        <option value="svb">svb</option>
+                        <option value="svh">svh</option>
+                        <option value="svi">svi</option>
+                        <option value="svw">svw</option>
+                        <option value="vb">vb</option>
+                        <option value="vh">vh</option>
+                        <option value="vi">vi</option>
+                        <option value="vmax">vmax</option>
+                        <option value="vmin">vmin</option>
+                        <option value="vw">vw</option>
+                      </select>
+                    </div>
+                    <!-- margin -->
+                    <div class="row mb-2">
+                      <label for="margin" type="button" class="col-12 mb-1"
+                        >margin</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        name="margin"
+                        data-style-type="margin"
+                        class="inputs-style col-6 m-auto p-1"
+                        id="margin"
+                      />
+                      <select
+                        class="form-select rounded-0 style-unit col-6 m-auto w-auto"
+                        aria-label="margin"
+                        data-target-connect="margin"
+                      >
+                        <option selected value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="cap">cap</option>
+                        <option value="ch">ch</option>
+                        <option value="cm">cm</option>
+                        <option value="cqb">cqb</option>
+                        <option value="cqh">cqh</option>
+                        <option value="cqi">cqi</option>
+                        <option value="cqmax">cqmax</option>
+                        <option value="cqmin">cqmin</option>
+                        <option value="cqw">cqw</option>
+                        <option value="dvb">dvb</option>
+                        <option value="dvh">dvh</option>
+                        <option value="dvi">dvi</option>
+                        <option value="dvw">dvw</option>
+                        <option value="em">em</option>
+                        <option value="ex">ex</option>
+                        <option value="fr">fr</option>
+                        <option value="ic">ic</option>
+                        <option value="in">in</option>
+                        <option value="lh">lh</option>
+                        <option value="lvb">lvb</option>
+                        <option value="lvh">lvh</option>
+                        <option value="lvi">lvi</option>
+                        <option value="lvw">lvw</option>
+                        <option value="mm">mm</option>
+                        <option value="pc">pc</option>
+                        <option value="pt">pt</option>
+                        <option value="px">px</option>
+                        <option value="q">q</option>
+                        <option value="rcap">rcap</option>
+                        <option value="rch">rch</option>
+                        <option value="rem">rem</option>
+                        <option value="rex">rex</option>
+                        <option value="ric">ric</option>
+                        <option value="rlh">rlh</option>
+                        <option value="svb">svb</option>
+                        <option value="svh">svh</option>
+                        <option value="svi">svi</option>
+                        <option value="svw">svw</option>
+                        <option value="vb">vb</option>
+                        <option value="vh">vh</option>
+                        <option value="vi">vi</option>
+                        <option value="vmax">vmax</option>
+                        <option value="vmin">vmin</option>
+                        <option value="vw">vw</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!-- end size -->
+
+
+<!-- position -->
+                <div class="accordion-item border rounded-0 my-2 p-2">
+                  <button
+                    class="accordion-button "
+                    id="positions"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#positions-style"
+                  >
+                    positions
+                  </button>
+
+                  <div class="collapse" id="positions-style">
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="position-static" type="button">static</label>
+                      <input
+                        type="radio"
+                        name="position"
+                        id="position-static"
+                        value="static"
+                        data-style-type="position"
+                        class="inputs-style"
+                      />
+                    </div>
+                  <div class="d-flex justify-content-between mb-2">
+                      <label for="position-relative" type="button">relative</label>
+                      <input
+                        type="radio"
+                        name="position"
+                        id="position-relative"
+                        value="relative"
+                        data-style-type="position"
+                        class="inputs-style"
+                      />
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="position-absolute" type="button">absolute</label>
+                      <input
+                        type="radio"
+                        name="position"
+                        id="position-absolute"
+                        value="absolute"
+                        data-style-type="position"
+                        class="inputs-style"
+                      />
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="position-fixed" type="button">fixed</label>
+                      <input
+                        type="radio"
+                        name="position"
+                        id="position-fixed"
+                        value="fixed"
+                        data-style-type="position"
+                        class="inputs-style"
+                      />
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="position-sticky" type="button">sticky</label>
+                      <input
+                        type="radio"
+                        name="position"
+                        id="position-sticky"
+                        value="sticky"
+                        data-style-type="position"
+                        class="inputs-style"
+                      />
+                    </div>
+                    <!-- top -->
+                    <div class="row mb-2">
+                      <label for="top" type="button" class="col-12 mb-1"
+                        >top</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        name="top"
+                        data-style-type="top"
+                        class="inputs-style col-6 m-auto p-1"
+                        id="top"
+                      />
+                      <select
+                        class="form-select rounded-0 style-unit col-6 m-auto w-auto"
+                        aria-label="top"
+                        data-target-connect="top"
+                      >
+                        <option selected value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="cap">cap</option>
+                        <option value="ch">ch</option>
+                        <option value="cm">cm</option>
+                        <option value="cqb">cqb</option>
+                        <option value="cqh">cqh</option>
+                        <option value="cqi">cqi</option>
+                        <option value="cqmax">cqmax</option>
+                        <option value="cqmin">cqmin</option>
+                        <option value="cqw">cqw</option>
+                        <option value="dvb">dvb</option>
+                        <option value="dvh">dvh</option>
+                        <option value="dvi">dvi</option>
+                        <option value="dvw">dvw</option>
+                        <option value="em">em</option>
+                        <option value="ex">ex</option>
+                        <option value="fr">fr</option>
+                        <option value="ic">ic</option>
+                        <option value="in">in</option>
+                        <option value="lh">lh</option>
+                        <option value="lvb">lvb</option>
+                        <option value="lvh">lvh</option>
+                        <option value="lvi">lvi</option>
+                        <option value="lvw">lvw</option>
+                        <option value="mm">mm</option>
+                        <option value="pc">pc</option>
+                        <option value="pt">pt</option>
+                        <option value="px">px</option>
+                        <option value="q">q</option>
+                        <option value="rcap">rcap</option>
+                        <option value="rch">rch</option>
+                        <option value="rem">rem</option>
+                        <option value="rex">rex</option>
+                        <option value="ric">ric</option>
+                        <option value="rlh">rlh</option>
+                        <option value="svb">svb</option>
+                        <option value="svh">svh</option>
+                        <option value="svi">svi</option>
+                        <option value="svw">svw</option>
+                        <option value="vb">vb</option>
+                        <option value="vh">vh</option>
+                        <option value="vi">vi</option>
+                        <option value="vmax">vmax</option>
+                        <option value="vmin">vmin</option>
+                        <option value="vw">vw</option>
+                      </select>
+                    </div>
+                    <!-- left -->
+                    <div class="row mb-2">
+                      <label for="left" type="button" class="col-12 mb-1"
+                        >left</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        name="left"
+                        data-style-type="left"
+                        class="inputs-style col-6 m-auto p-1"
+                        id="left"
+                      />
+                      <select
+                        class="form-select rounded-0 style-unit col-6 m-auto w-auto"
+                        aria-label="left"
+                        data-target-connect="left"
+                      >
+                        <option selected value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="cap">cap</option>
+                        <option value="ch">ch</option>
+                        <option value="cm">cm</option>
+                        <option value="cqb">cqb</option>
+                        <option value="cqh">cqh</option>
+                        <option value="cqi">cqi</option>
+                        <option value="cqmax">cqmax</option>
+                        <option value="cqmin">cqmin</option>
+                        <option value="cqw">cqw</option>
+                        <option value="dvb">dvb</option>
+                        <option value="dvh">dvh</option>
+                        <option value="dvi">dvi</option>
+                        <option value="dvw">dvw</option>
+                        <option value="em">em</option>
+                        <option value="ex">ex</option>
+                        <option value="fr">fr</option>
+                        <option value="ic">ic</option>
+                        <option value="in">in</option>
+                        <option value="lh">lh</option>
+                        <option value="lvb">lvb</option>
+                        <option value="lvh">lvh</option>
+                        <option value="lvi">lvi</option>
+                        <option value="lvw">lvw</option>
+                        <option value="mm">mm</option>
+                        <option value="pc">pc</option>
+                        <option value="pt">pt</option>
+                        <option value="px">px</option>
+                        <option value="q">q</option>
+                        <option value="rcap">rcap</option>
+                        <option value="rch">rch</option>
+                        <option value="rem">rem</option>
+                        <option value="rex">rex</option>
+                        <option value="ric">ric</option>
+                        <option value="rlh">rlh</option>
+                        <option value="svb">svb</option>
+                        <option value="svh">svh</option>
+                        <option value="svi">svi</option>
+                        <option value="svw">svw</option>
+                        <option value="vb">vb</option>
+                        <option value="vh">vh</option>
+                        <option value="vi">vi</option>
+                        <option value="vmax">vmax</option>
+                        <option value="vmin">vmin</option>
+                        <option value="vw">vw</option>
+                      </select>
+                    </div>
+                    <!-- right -->
+                    <div class="row mb-2">
+                      <label for="right" type="button" class="col-12 mb-1"
+                        >right</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        name="right"
+                        data-style-type="right"
+                        class="inputs-style col-6 m-auto p-1"
+                        id="right"
+                      />
+                      <select
+                        class="form-select rounded-0 style-unit col-6 m-auto w-auto"
+                        aria-label="right"
+                        data-target-connect="right"
+                      >
+                        <option selected value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="cap">cap</option>
+                        <option value="ch">ch</option>
+                        <option value="cm">cm</option>
+                        <option value="cqb">cqb</option>
+                        <option value="cqh">cqh</option>
+                        <option value="cqi">cqi</option>
+                        <option value="cqmax">cqmax</option>
+                        <option value="cqmin">cqmin</option>
+                        <option value="cqw">cqw</option>
+                        <option value="dvb">dvb</option>
+                        <option value="dvh">dvh</option>
+                        <option value="dvi">dvi</option>
+                        <option value="dvw">dvw</option>
+                        <option value="em">em</option>
+                        <option value="ex">ex</option>
+                        <option value="fr">fr</option>
+                        <option value="ic">ic</option>
+                        <option value="in">in</option>
+                        <option value="lh">lh</option>
+                        <option value="lvb">lvb</option>
+                        <option value="lvh">lvh</option>
+                        <option value="lvi">lvi</option>
+                        <option value="lvw">lvw</option>
+                        <option value="mm">mm</option>
+                        <option value="pc">pc</option>
+                        <option value="pt">pt</option>
+                        <option value="px">px</option>
+                        <option value="q">q</option>
+                        <option value="rcap">rcap</option>
+                        <option value="rch">rch</option>
+                        <option value="rem">rem</option>
+                        <option value="rex">rex</option>
+                        <option value="ric">ric</option>
+                        <option value="rlh">rlh</option>
+                        <option value="svb">svb</option>
+                        <option value="svh">svh</option>
+                        <option value="svi">svi</option>
+                        <option value="svw">svw</option>
+                        <option value="vb">vb</option>
+                        <option value="vh">vh</option>
+                        <option value="vi">vi</option>
+                        <option value="vmax">vmax</option>
+                        <option value="vmin">vmin</option>
+                        <option value="vw">vw</option>
+                      </select>
+                    </div>
+                    <!-- bottom -->
+                    <div class="row mb-2">
+                      <label for="bottom" type="button" class="col-12 mb-1"
+                        >bottom</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        name="bottom"
+                        data-style-type="bottom"
+                        class="inputs-style col-6 m-auto p-1"
+                        id="bottom"
+                      />
+                      <select
+                        class="form-select rounded-0 style-unit col-6 m-auto w-auto"
+                        aria-label="bottom"
+                        data-target-connect="bottom"
+                      >
+                        <option selected value="px">px</option>
+                        <option value="%">%</option>
+                        <option value="cap">cap</option>
+                        <option value="ch">ch</option>
+                        <option value="cm">cm</option>
+                        <option value="cqb">cqb</option>
+                        <option value="cqh">cqh</option>
+                        <option value="cqi">cqi</option>
+                        <option value="cqmax">cqmax</option>
+                        <option value="cqmin">cqmin</option>
+                        <option value="cqw">cqw</option>
+                        <option value="dvb">dvb</option>
+                        <option value="dvh">dvh</option>
+                        <option value="dvi">dvi</option>
+                        <option value="dvw">dvw</option>
+                        <option value="em">em</option>
+                        <option value="ex">ex</option>
+                        <option value="fr">fr</option>
+                        <option value="ic">ic</option>
+                        <option value="in">in</option>
+                        <option value="lh">lh</option>
+                        <option value="lvb">lvb</option>
+                        <option value="lvh">lvh</option>
+                        <option value="lvi">lvi</option>
+                        <option value="lvw">lvw</option>
+                        <option value="mm">mm</option>
+                        <option value="pc">pc</option>
+                        <option value="pt">pt</option>
+                        <option value="px">px</option>
+                        <option value="q">q</option>
+                        <option value="rcap">rcap</option>
+                        <option value="rch">rch</option>
+                        <option value="rem">rem</option>
+                        <option value="rex">rex</option>
+                        <option value="ric">ric</option>
+                        <option value="rlh">rlh</option>
+                        <option value="svb">svb</option>
+                        <option value="svh">svh</option>
+                        <option value="svi">svi</option>
+                        <option value="svw">svw</option>
+                        <option value="vb">vb</option>
+                        <option value="vh">vh</option>
+                        <option value="vi">vi</option>
+                        <option value="vmax">vmax</option>
+                        <option value="vmin">vmin</option>
+                        <option value="vw">vw</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!-- end position -->
+                <!-- content -->
+                            <div class="accordion-item border rounded-0 my-2 p-2">
+                  <button
+                    class="accordion-button "
+                    id="content"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#content-style"
+                  >
+                    content
+                  </button>
+
+                  <div class="collapse" id="content-style">
+                    <div class="d-flex justify-content-between mb-2">
+                      <label for="content" type="button">content</label>
+                      <input
+                        type="text"
+                        name="content"
+                        id="content"
+                        value="0"
+                        data-style-type="content"
+                        class="inputs-style"
+                      />
+                    </div>
+                    </div>
+                    </div>
+                <!-- end content -->
+              </div>
+              <!-- end offcanvas-body -->
+            </div>
+          </div>
+          <!-- edit-content -->
+          <div class="edit-content col-12 col-lg-8 border p-2">
+            <div
+              id="viwer-box"
+              class="d-flex justify-content-center align-items-center h-100"
+            >
+              chosen element will appear here
+            </div>
+          </div>
+          <div class="style-code border border-top-0">
+            <div>
+              <div class="code py-2">
+                <div class="border-bottom-1 p-3">
+                  <i
+                    class="fa-regular fa-copy fa-lg copy-icon"
+                    onclick="copyCode('html-code')"
+                  ></i
+                  ><span class="ms-2">HTML Code</span>
+                </div>
+                <textarea
+                  id="html-code"
+                  cols="30"
+                  rows="5"
+                  class="form-control border rounded-0"
+                  readonly
+                ></textarea>
+              </div>
+              <div class="code py-2">
+                <div class="border-bottom-1 p-3">
+                  <i
+                    class="fa-regular fa-copy fa-lg copy-icon"
+                    onclick="copyCode('css-code')"
+                  ></i
+                  ><span class="ms-2">CSS Code</span>
+                </div>
+                <textarea
+                  id="css-code"
+                  cols="30"
+                  rows="5"
+                  class="form-control border rounded-0"
+                  readonly
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end edit-content -->
+    <!-- end edit-->
+
+    <!-- end edit section -->
+
+    <!-- ------------------------------------------ -->
+    <script src="js/index.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+<!-- 
+
+
+
+
+  
+
+
+
+
+
+
+                      
+
+ -->
