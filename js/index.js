@@ -27,9 +27,9 @@ setThemeColor();
 items.forEach((el) => el.addEventListener("click", (e) => setItem(e.target)));
 function setItem(elName) {
   reset();
-  switch (elName.textContent.toLowerCase()) {
-    case "table":
-      let myTable = createElement(elName.textContent, true);
+  switch (getAttrValue(elName, "data-value")) {
+    case "Table":
+      let myTable = createElement(getAttrValue(elName, "data-value"), true);
 
       let thead = createElement("thead", true);
       let tbody = createElement("tbody", true);
@@ -183,7 +183,7 @@ function events() {
             el.name
           );
           pseudoClassesArray.push(getAttrValue(el, "data-value"));
-          resetStyleBoard()
+          resetStyleBoard();
         } else {
           if (currentElement[`${getAttrValue(el, "data-value")}`] != null) {
             if (
@@ -224,8 +224,7 @@ function events() {
   );
   //  inputs
   inputsStyle.forEach((el) => {
-    
-    const styleType = getAttrValue(el,'data-style-type')
+    const styleType = getAttrValue(el, "data-style-type");
     styleUnits.forEach(
       (su) =>
         (su.onchange = () => {
@@ -243,7 +242,6 @@ function events() {
     );
     if (el.type == "color" || el.type == "text" || el.type == "number")
       el.oninput = () => {
-    
         setStyle(el, currentElement.currentStyle, styleType);
         inputsInside =
           el.parentElement.parentElement.querySelectorAll(".inputs-style");
